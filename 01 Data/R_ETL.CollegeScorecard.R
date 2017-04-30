@@ -1,16 +1,16 @@
 require(readr)
 require(plyr)
 
-# Download the pantheria file into a folder ../../CSVs and rename the file PreETL_Pantheria.csv
-file_path = "../../CSVs/PreETL_ushealthsafety.csv"
-ushealthsafety <- readr::read_csv(file_path)
-names(ushealthsafety)
+# Download the CollegeScorecard file into a folder ../../CSVs and rename the file PreETL_CollegeScorecard.csv
+file_path = "../../CSVs/PreETL_CollegeScorecard.csv"
+collegescorecard <- readr::read_csv(file_path)
+names(collegescorecard)
 
-df <- ushealthsafety
-names(ushealthsafety)
-str(ushealthsafety) # Uncomment this line and  run just the lines to here to get column types to use for getting the list of measures.
+df <- collegescorecard
+names(collegescorecard)
+str(collegescorecard) # Uncomment this line and  run just the lines to here to get column types to use for getting the list of measures.
 
-dimensions <- c("year", "State", "geo")
+dimensions <- c("UNITID", "INSTNM",	"CITY",	"STABBR",	"CONTROL", "CCBASIC") 
 dimensions
 
 measures <- setdiff(names(df), dimensions)
