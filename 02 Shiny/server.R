@@ -6,6 +6,11 @@ require(shinydashboard)
 require(data.world)
 require(readr)
 require(DT)
+require(leaflet)
+require(plotly)
+require(lubridate)
+
+
 
 shinyServer(function(input, output) { 
   # These widgets are for the Crosstabs tab.
@@ -20,10 +25,10 @@ shinyServer(function(input, output) {
       query(
         data.world(propsfile = "www/.data.world"),
         dataset="jlee/s-17-dv-final-project", type="sql",
-        query="Select `CONTROL`, c.AreaName,  
+        query="Select `CONTROL`, c.AreaName,  STABBR,
         sum(INEXPFTE) as sum_exp, 
         sum(COSTT4_A) as sum_cost, 
-        sum(INEXPFTE) / sum(COSTT4_A) as ratio,
+        sum(INEXPFTE) / sum(COSTT4_A) as ratio, avg(COSTT4_A) as avgCost,
         
         case
         when sum(INEXPFTE) / sum(COSTT4_A) < ? then '03 Low'
@@ -38,18 +43,7 @@ shinyServer(function(input, output) {
         order by `CONTROL`, c.AreaName",
         queryParameters = list(KPI_Low(), KPI_Medium())
       ) # %>% View()
-    # }
-    # else {
-    #   print("Getting from csv")
-    #   file_path = "www/CollegeScorecard.csv"
-    #   df <- readr::read_csv(file_path)
-    #   df %>%
-    #     dplyr::group_by(`CONTROL`, `c.AreaName`) %>%
-    #     dplyr::summarize(sum_exp = sum(INEXPFTE), sum_cost = sum(COSTT4_A),
-    #                      ratio = sum(INEXPFTE) / sum(COSTT4_A),
-    #                      kpi = if_else(ratio <= KPI_Low(), '03 Low',
-    #                                    if_else(ratio <= KPI_Medium(), '02 Medium', '01 High'))) # %>% View()
-    # }
+
   })
   output$data1 <- renderDataTable({DT::datatable(df1(), rownames = FALSE,
                                                  extensions = list(Responsive = TRUE, FixedHeader = TRUE)
@@ -63,4 +57,14 @@ shinyServer(function(input, output) {
   })
   # End Crosstab Tab 1 ___________________________________________________________
   
+  #Start Map 1 _____________________________________________________________________________
+  
+  
+  output$plot2 <- renderPlotly({plot_geo(df1(), locationmode = 'USA-states') %>%
+      add_trace(z= ~ratio, color = ~ratio, colors = 'Blues', locations = ~STABBR) %>%
+      colorbar(title = "Ratio") %>%
+      layout(title = "Region Cost of Attendance Map", geo = g)
   })
+  
+})
+  

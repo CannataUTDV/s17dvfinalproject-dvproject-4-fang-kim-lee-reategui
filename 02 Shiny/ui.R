@@ -26,8 +26,10 @@ dashboardPage(
                          hr(), # Add space after button.
                          DT::dataTableOutput("data1")
                 ),
-                tabPanel("Crosstab", plotOutput("plot1", height=1000))
+                tabPanel("Crosstab", plotOutput("plot1", height=1000)),
+                tabPanel("Region Map", plotOutput("plot2", height=1000))
               )
+              
       )
       # End Crosstab tab content.
     )
