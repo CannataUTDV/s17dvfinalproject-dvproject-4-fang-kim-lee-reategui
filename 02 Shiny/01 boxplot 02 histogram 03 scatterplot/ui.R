@@ -33,15 +33,9 @@ dashboardPage(
                          DT::dataTableOutput("boxplotData1")
                 ),
                 tabPanel("Simple Box Plot", 
-                         
                          sliderInput("SelectCost4a", label = h4("Select Maximum cost of attendance"), 
                                      min = min(df$COSTT4_A, na.rm = TRUE), max = max(df$COSTT4_A, na.rm = TRUE),  
                                      value = max(df$COSTT4_A, na.rm = TRUE)),
-                         
-                         #hr(),
-                         #fluidRow(column(3, verbatimTextOutput("costvalue"))),
-                         
-                         
                          plotlyOutput("boxplotPlot1", height=500))
               )
       ),
@@ -55,8 +49,6 @@ dashboardPage(
                                       c("SQL" = "SQL",
                                         "CSV" = "CSV"), inline=T),
                          actionButton(inputId = "click4",  label = "To get data, click here"),
-                         
-
                          hr(), # Add space after button.
                          DT::dataTableOutput("histogramData1")
                 ),
@@ -65,7 +57,6 @@ dashboardPage(
                          selectInput("select", label = h4("Select State"), 
                                      choices = unique(df$STABBR), 
                                      selected = 1),
-                         
                          hr(),
                          fluidRow(column(3, verbatimTextOutput("value"))),
                          
