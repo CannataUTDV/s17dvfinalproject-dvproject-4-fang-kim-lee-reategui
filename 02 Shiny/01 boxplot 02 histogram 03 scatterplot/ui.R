@@ -34,15 +34,6 @@ dashboardPage(
                          DT::dataTableOutput("boxplotData1")
                 ),
                 tabPanel("Simple Box Plot", 
-                         sliderInput("boxCONTROLRange1", "CONTROL Range:", # See https://shiny.rstudio.com/articles/sliders.html
-                                     min = min(globals$CONTROL), max = max(globals$CONTROL), 
-                                     value = c(min(globals$CONTROL), max(globals$CONTROL))),
-                         sliderInput("range5a", "Looping Animation:", 
-                                     min(globals$Order_Date), 
-                                     max(globals$Order_Date) + .75, 
-                                     max(globals$Order_Date), 
-                                     step = 0.25,
-                                     animate=animationOptions(interval=2000, loop=T)),
                          plotlyOutput("boxplotPlot1", height=500))
               )
       ),
@@ -78,7 +69,6 @@ dashboardPage(
               )
       )
       # End Scatter Plots tab content.
-
     )
   )
 )
