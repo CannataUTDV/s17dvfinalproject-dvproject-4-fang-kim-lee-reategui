@@ -9,7 +9,7 @@ require(DT)
 require(leaflet)
 require(plotly)
 require(lubridate)
-
+library (plotly)
 
 
 shinyServer(function(input, output) { 
@@ -45,11 +45,11 @@ shinyServer(function(input, output) {
       ) # %>% View()
 
   })
-  
   #dfmap <-  data.frame(df1$STABBR, df1$ratio)
   output$data1 <- renderDataTable({DT::datatable(df1(), rownames = FALSE,
                                                  extensions = list(Responsive = TRUE, FixedHeader = TRUE)
   )
+    
   })
   output$plot1 <- renderPlot({ggplot(df1()) + 
       theme(axis.text.x=element_text(size=15, vjust=0.5)) + 
@@ -61,10 +61,15 @@ shinyServer(function(input, output) {
   
   #Start Map 1 _____________________________________________________________________________
   
+  
   output$plot3 <- renderPlotly({plot_geo(df1(), locationmode = 'USA-states') %>%
-      add_trace(z= ~ratio, color = ~ratio, colors = 'Blues', locations = ~STABBR) %>%
+      add_trace(z= ~avgCost, color = ~avgCost, colors = 'Purples', locations = ~STABBR) %>%
       colorbar(title = "Ratio") %>%
       layout(title = "Region Cost of Attendance Map", geo = g)
+  })
+    
+  
+  
     
   # Begin Crosstab Tab 2 ------------------------------------------------------------------
   df2 <- eventReactive(input$click2, {
@@ -117,6 +122,3 @@ shinyServer(function(input, output) {
   # End Crosstab Tab 2 ___________________________________________________________
   
   })
-  
-})
-  
