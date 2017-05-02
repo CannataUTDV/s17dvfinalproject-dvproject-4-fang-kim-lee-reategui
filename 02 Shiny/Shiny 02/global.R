@@ -1,5 +1,7 @@
 require(readr)
 require(dplyr)
+require(plotly)
+library (plotly)
 
 online0 = FALSE
 
