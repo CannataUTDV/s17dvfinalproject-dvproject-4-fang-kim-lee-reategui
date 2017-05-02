@@ -65,7 +65,7 @@ shinyServer(function(input, output) {
   
   
   output$plot3 <- renderPlotly({plot_geo(df1(), locationmode = 'USA-states') %>%
-      add_trace(z= ~avgCost, color = ~avgCost, colors = 'Purples', locations = ~STABBR) %>%
+      add_trace(z= ~ratio, color = ~ratio, colors = 'Blues', locations = ~STABBR) %>%
       colorbar(title = "Ratio") %>%
       layout(title = "Region Cost of Attendance Map")
   })
@@ -80,7 +80,7 @@ shinyServer(function(input, output) {
     query(
       data.world(propsfile = "www/.data.world"),
       dataset="jlee/s-17-dv-final-project", type="sql",
-      query="Select `CONTROL`, c.AreaName, `UGDS_WHITE`,  
+      query="Select `CONTROL`, c.AreaName, `UGDS_WHITE`, STABBR,  
       sum(TUITFTE) as sum_rev, 
       sum(COSTT4_A) as sum_cost, 
       sum(TUITFTE) / sum(COSTT4_A) as ratio,
@@ -122,5 +122,13 @@ shinyServer(function(input, output) {
       geom_tile(aes(x=`CONTROL`, y=AreaName, fill=kpi), alpha=0.50)
   })
   # End Crosstab Tab 2 ___________________________________________________________
+  
+  output$plot4 <- renderPlotly({plot_geo(df2(), locationmode = 'USA-states') %>%
+      add_trace(z= ~ratio, color = ~ratio, colors = 'Reds', locations = ~STABBR) %>%
+      colorbar(title = "Ratio") %>%
+      layout(title = "Tuition Revenue to Total Cost Map", geo = g)
+  })
+  
+  
   
   })
