@@ -45,11 +45,10 @@ shinyServer(function(input, output) {
       print("Getting from data.world")
       df <- query(
         data.world(propsfile = "www/.data.world"),
-        dataset="cannata/superstoreorders", type="sql",
-        query="select Category, CONTROL, STABBR, CCBASIC
-        from SuperStoreOrders
-        where (? = 'All' or STABBR in (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?))",
-        queryParameters = STABBR_list5 ) # %>% View()
+        dataset="jlee/s-17-dv-final-project", type="sql",
+        query="select UNITID, CONTROL, STABBR, CCBASIC, COSTT4_A
+        from CollegeScorecard"
+        ) # %>% View()
     }
     else {
       print("Getting from csv")
@@ -82,10 +81,9 @@ shinyServer(function(input, output) {
       print("Getting from data.world")
       query(
         data.world(propsfile = "www/.data.world"),
-        dataset="cannata/superstoreorders", type="sql",
-        query="select Shipping_Cost, Container
-        from SuperStoreOrders
-        where Container = 'Small Box'"
+        dataset="jlee/s-17-dv-final-project", type="sql",
+        query="select UNITID, SAT_AVG
+        from CollegeScorecard"
       ) # %>% View()
     }
     else {
@@ -118,10 +116,9 @@ shinyServer(function(input, output) {
       print("Getting from data.world")
       query(
         data.world(propsfile = "www/.data.world"),
-        dataset="cannata/superstoreorders", type="sql",
-        query="select CONTROL, Profit, State
-        from SuperStoreOrders
-        where State = 'Texas' or State = 'Florida'"
+        dataset="jlee/s-17-dv-final-project", type="sql",
+        query="select UNITID, INEXPFTE, TUITFTE, STABBR
+        from CollegeScorecard"
       ) # %>% View()
     }
     else {
