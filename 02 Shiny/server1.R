@@ -40,22 +40,22 @@ region_list5 <- region_list
 shinyServer(function(input, output) { 
   # These widgets are for the Barcharts tab.
   online2 = reactive({input$rb2})
-  output$regions2 <- renderUI({selectInput("selectedregions", "Choose the Area:", region_list, multiple = TRUE, selected='All') })
+  output$regions2 <- renderUI({selectInput("selectedRegions", "Choose Type of Institution:", region_list, multiple = TRUE, selected='All') })
   
   # Begin Barchart Tab ------------------------------------------------------------------
   dfbc1 <- eventReactive(input$click2, {
-    if(input$selectedregions == 'All') region_list <- input$selectedregions
-    else region_list <- append(list("Skip" = "Skip"), input$selectedregions)
+    if(input$selectedRegions == 'All') region_list <- input$selectedRegions
+    else region_list <- append(list("Skip" = "Skip"), input$selectedRegions)
     # if(online2() == "SQL") {
     print("Getting from data.world")
     tdf = query(
       data.world(propsfile = "www/.data.world"),
       dataset="jlee/s-17-dv-final-project", type="sql",
-      query="select `CONTROL`, AreaName, sum(`INEXPFTE`) as sum_cost 
+      query="select `INSTNM`, AreaName, sum(`COSTT4_A`) as sum_cost 
       from `CollegeScorecard.csv/CollegeScorecard` g join `us_education_census.csv/us_education_census` c 
       on g.`STABBR` = c.`State`
-      where (? = 'All' or AreaName in (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?))
-      group by `CONTROL`, AreaName",
+      where `CCBASIC` in (24,25,26,27,28,29,30,31,32) and (? = 'All' or AreaName in (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?))
+      group by `INSTNM`, AreaName",
       queryParameters = region_list
     ) # %>% View()
     # }
@@ -81,16 +81,16 @@ shinyServer(function(input, output) {
                                                          rownames = FALSE,
                                                          extensions = list(Responsive = TRUE, FixedHeader = TRUE) )
   })
-  output$barchartPlot1 <- renderPlot({ggplot(dfbc1(), aes(x=`CONTROL`, y=sum_cost)) +
+  output$barchartPlot1 <- renderPlot({ggplot(dfbc1(), aes(x=`INSTNM`, y=sum_cost)) +
       scale_y_continuous(labels = scales::comma) + # no scientific notation
-      theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5)) + 
-      theme(axis.text.y=element_text(size=10, hjust=0.5)) +
+      theme(axis.text.x=element_text(angle=0, size=5, vjust=0.5)) + 
+      theme(axis.text.y=element_text(size=5, hjust=0.5)) +
       geom_bar(stat = "identity") + 
       facet_wrap(~AreaName, ncol=1) + 
       coord_flip() + 
       # Add sum_sales, and (sum_sales - window_avg_sales) label.
-      geom_text(mapping=aes(x=`CONTROL`, y=sum_cost, label=round(sum_cost)),colour="black", hjust=-.5) +
-      geom_text(mapping=aes(x=`CONTROL`, y=sum_cost, label=round(sum_cost - window_avg_cost)),colour="blue", hjust=-2) +
+      geom_text(mapping=aes(x=`INSTNM`, y=sum_cost, label=round(sum_cost)),colour="black", hjust=-.5) +
+      geom_text(mapping=aes(x=`INSTNM`, y=sum_cost, label=round(sum_cost - window_avg_cost)),colour="blue", hjust=-2) +
       # Add reference line with a label.
       geom_hline(aes(yintercept = round(window_avg_cost)), color="red") +
       geom_text(aes( -1, window_avg_cost, label = window_avg_cost, vjust = -.5, hjust = -.25), color="red")

@@ -25,7 +25,7 @@ dashboardPage(
                          hr(),
                          DT::dataTableOutput("barchartData1")
                 ),
-                tabPanel("Barchart with Table Calculation", "Black = Sum of Shipping Cost per Sub-Category, Red = Average Sum of Shipping Cost per Region, and  Blue = (Sum of Shipping Cost per Sub-Category - Average Sum of Shipping Cost per Region)", plotOutput("barchartPlot1", height=1500))
+                tabPanel("Barchart with Table Calculation", "Black = Sum of Instructional Expense per Type of Institution, Red = Average Sum of Instructional Expense per Area, and  Blue = (Sum of Instructional Expense per Type of Institution - Average Sum of Instructional Expense per Area)", plotOutput("barchartPlot1", height=1500))
               )
       )
       # End Barchart tab content.
