@@ -85,7 +85,7 @@ shinyServer(function(input, output) {
                                                          rownames = FALSE,
                                                          extensions = list(Responsive = TRUE, FixedHeader = TRUE) )
   })
-  output$barchartPlot1 <- renderPlot({ggplot(dfbc1(), aes(x=`CONTROL`, y=sum_cost)) +
+  output$barchartPlot1 <- renderPlot({ggplot(dfbc1(), aes(x=as.character(`CONTROL`), y=sum_cost)) +
       scale_y_continuous(labels = scales::comma) + # no scientific notation
       theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5)) + 
       theme(axis.text.y=element_text(size=10, hjust=0.5)) +
