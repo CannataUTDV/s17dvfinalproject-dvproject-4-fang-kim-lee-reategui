@@ -18,6 +18,12 @@ df <- query(
   group by STABBR"
 )
 
+
+"Select STABBR,
+        sum(INEXPFTE) / sum(COSTT4_A) as ratio, avg(COSTT4_A) as avgCost,
+        from CollegeScorecard
+        group by STABBR"
+
 print (df)
 
 p <- plot_geo(df, locationmode = 'USA-states') %>%

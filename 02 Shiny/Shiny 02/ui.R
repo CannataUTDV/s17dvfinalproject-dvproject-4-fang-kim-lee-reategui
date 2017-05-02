@@ -30,7 +30,7 @@ dashboardPage(
                          DT::dataTableOutput("data1")
                 ),
                 tabPanel("Instructional Expenditures to Total Cost Ratio", plotOutput("plot1", height=1000)),
-                tabPanel("Ratio Map", plotOutput("plot3", height=1000))
+                tabPanel("Ratio Map", plotlyOutput("plot3"))
                 
               )
       ),
@@ -51,7 +51,8 @@ dashboardPage(
                          hr(),
                          DT::dataTableOutput("data2")
                 ),
-                tabPanel("Tuition Revenue to Total Cost Ratio", plotOutput("plot2", height=1000))
+                tabPanel("Tuition Revenue to Total Cost Ratio", plotOutput("plot2", height=1000)),
+                tabPanel("Ratio Map", plotlyOutput("plot4"))
               )
       )
       # End Crosstab tab 2 content.
