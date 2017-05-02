@@ -1,5 +1,5 @@
 ---
-title: "<center><b>Global Shipments Data</b></center>"
+title: "<center><b>College Scorecard</b></center>"
 author: "<center><b>Yu-Chiao Fang, Elizabeth Kim, Seung Hoon Lee, Orlando Reategui</b></center>"
 output:
   html_document:
@@ -19,7 +19,9 @@ sessionInfo(package=NULL)
 ```
 
 #**Data Description**
-The data was found on "Dr. John Rasp's Statistics Website" (http://www2.stetson.edu/~jrasp/data.htm). It is a subset of the data from College Scorecard, a Department of Education website that gives data on various variables regarding tuition, costs and school performance.
+The data was found on "Dr. John Rasp's Statistics Website" (http://www2.stetson.edu/~jrasp/data.htm). It is a subset of the data from College Scorecard, a Department of Education website that gives data on various variables regarding tuition, costs and school performance. </br>
+
+An explanatory key for the recorded variables can be found here: https://data.world/jlee/s-17-dv-final-project/file/CollegeScorecard_ColumnNames.pdf </br>
 
 #**Cleaning Data**
 Here's our ETL file to clean our data set.
@@ -47,7 +49,7 @@ source("../01 Data/Accessdataworld.R")
 <b>Boxplot: Average Cost of Attendance for Type of School</b> </br></br>
 ![](../03 Visualizations/Average Cost of Attendance for Type of School Boxplot (Tableau).png){ width=49% }
 ![](../03 Visualizations/Boxplot.png){ width=49% }
-These boxplots (Tableau left, Shiny right) dfddf</br></br>
+These boxplots (Tableau left, Shiny right) demonstrate </br></br>
 
 <b>Histogram: SAT Averages for Universities</b> </br></br>
 ![](../03 Visualizations/SAT_AVG Histogram (Tableau).png){ width=49% }
@@ -61,53 +63,99 @@ These scatterplots (Tableau left, Shiny right) explore the correlation between I
 </br></br>
 
 
-<b>Crosstab 1: BLABLALBLA</b> </br></br>
+<b>Crosstab 1: Instructional Expenditures / Cost of Attendance</b> </br></br>
 ![](../03 Visualizations/Crosstab + KPI w Set 1 (Tableau).png){ width=49% }
 ![](../03 Visualizations/kpi1.png){ width=49% }
 These crosstabs (Tableau left, Shiny right) xxxx
 </br></br>
 
-<b>Crosstab 2: BLABLALBLA</b> </br></br>
+<b>Crosstab 2: Tuition Revenue / Total Cost</b> </br></br>
 ![](../03 Visualizations/Crosstab + KPI w Set 2 (Tableau).png){ width=49% }
 ![](../03 Visualizations/kpi2.png){ width=49% }
 These crosstabs (Tableau left, Shiny right) xxxx
 </br></br>
 
-<b>Map 1: BLABLALBLA</b> </br></br>
+<b>Map 1: Region Cost of Attendance (Instructional Expenditures / Cost of Attendance)</b> </br></br>
 ![](../03 Visualizations/Crosstab Map 1 (Tableau).png){ width=49% }
 ![](../03 Visualizations/Map1.png){ width=49% }
-These maps (Tableau left, Shiny right) xxxx
+These maps (Tableau left, Shiny right) demonstrate the distribution of instructional expenditure / cost of attendance ratio across the United States, where darker colors indicate higher ratios.
+
 </br></br>
 
-<b>Map 2: BLABLALBLA</b> </br></br>
+<b>Map 2: Tuition Revenue to Total Cost</b> </br></br>
 ![](../03 Visualizations/Crosstab Map 2 (Tableau).png){ width=49% }
 ![](../03 Visualizations/Map2.png){ width=49% }
-These maps (Tableau left, Shiny right) xxxx
+These maps (Tableau left, Shiny right) demonstrate the distribution of tuition revenue / total cost ratio across the United States, where darker colors indicate higher ratios. 
 </br></br>
 
 
-<b>Barchart: BLABLALBLA</b> </br></br>
+<b>Barchart: Instructional Expense per Type of Instutition</b> </br></br>
 ![](../03 Visualizations/Barchart (Tableau).png){ width=30% }
 ![](../03 Visualizations/Barchart ID Sets Map (Tableau).png){ width=30% }
-![](../03 Visualizations/Barchart ID Sets Map (Tableau).png){ width=30% }
+![](../03 Visualizations/barchart.png){ width=30% }</br>
 These barcharts (Tableau left, Shiny right) xxxx
 </br></br>
-
-
-#**Tableau / Tableau Action Generated Visualizations**
-**Descriptions:** Full size static .pngs of the tableau visualizations. Refer to visualization captions for individual descriptions.
-
-Tableau generated barcharts. </br></br>
-![](../03 Visualizations/Map1.png)<br><br><br>
-
-Tableau generated ID sets.</br></br>
-![](../03 Visualizations/Map1.png)<br><br><br>
 
 #**Shiny Visualization and Published Application**
 **Description:** Full size static .pngs of the Shiny application, as well as a link to the live published version.<br>
 
 Published Link:</br>
-https://frannyfang.shinyapps.io/Barchart1/</br>
+https://ehjkim.shinyapps.io/shinyfinal/</br>
 
-Barchart1
-![](../03 Visualizations/Map1.PNG){ width=20% }</center>
+Boxplot: Average Cost of Attendance for Type of School</br></br>
+![](../03 Visualizations/Boxplot.png)<br><br><br>
+
+Histogram: SAT Averages for Universities</br></br>
+![](../03 Visualizations/Histogram.png)<br><br><br>
+
+Scatterplot: Instructional Expenditures vs. Net tuition</br></br>
+![](../03 Visualizations/Scatterplot.png)<br><br><br>
+
+Crosstab 1: Instructional Expenditures/Cost of Attendance</br></br>
+![](../03 Visualizations/kpi1.png)<br><br><br>
+
+Crosstab 2: Tuition Revenue / Total Cost</br></br>
+![](../03 Visualizations/kpi2.png)<br><br><br>
+
+Map 1: Region Cost of Attendance (Instructional Expenditures / Cost of Attendance)</br></br>
+![](../03 Visualizations/Map1.png)<br><br><br>
+
+Map 2: Tuition Revenue to Total Cost</br></br>
+![](../03 Visualizations/Map2.png)<br><br><br>
+
+Barchart: Instructional Expense per Type of Instutition</br></br>
+![](../03 Visualizations/barchart.png)<br><br><br>
+
+
+#**Tableau / Tableau Action Generated Visualizations**
+**Descriptions:** Full size static .pngs of the tableau visualizations. Refer to visualization captions for individual descriptions.
+
+Boxplot: Average Cost of Attendance for Type of School</br></br>
+![](../03 Visualizations/Average Cost of Attendance for Type of School Boxplot (Tableau).png)<br><br><br>
+
+Histogram: SAT Averages for Universities</br></br>
+![](../03 Visualizations/SAT_AVG Histogram (Tableau).png)<br><br><br>
+
+Scatterplot: Instructional Expenditures vs. Net tuition</br></br>
+![](../03 Visualizations/Scatter Plot (Tableau).png)<br><br><br>
+
+Crosstab 1: Instructional Expenditures/Cost of Attendance</br></br>
+![](../03 Visualizations/Crosstab + KPI w Set 1 (Tableau).png)<br><br><br>
+
+Crosstab 2: Tuition Revenue / Total Cost</br></br>
+![](../03 Visualizations/Crosstab + KPI w Set 2 (Tableau).png)<br><br><br>
+
+Map 1: Region Cost of Attendance (Instructional Expenditures / Cost of Attendance)</br></br>
+![](../03 Visualizations/Crosstab Map 1 (Tableau).png)<br><br><br>
+
+Map 2: Tuition Revenue to Total Cost</br></br>
+![](../03 Visualizations/Crosstab Map 2 (Tableau).png)<br><br><br>
+
+Barchart: Instructional Expense per Type of Instutition</br></br>
+![](../03 Visualizations/Barchart (Tableau).png){ width=49% }
+![](../03 Visualizations/Barchart ID Sets Map (Tableau).png){ width=49% }<br><br><br>
+
+
+
+
+</center>
