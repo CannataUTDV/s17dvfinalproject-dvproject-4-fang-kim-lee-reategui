@@ -9,7 +9,7 @@ output:
 ---
 
 #**Introduction**
-This is our R Notebook, showing the steps we took to complete Project 6 for CS 329E. This notebook includes step-by-step instructions on how to reproduce our project. To obtain our data, we used data.world. 
+This is our R Notebook, showing the steps we took to complete the Final Project for CS 329E. This notebook includes step-by-step instructions on how to reproduce our project. To obtain our data, we used data.world. 
 
 #**R Configuration**
 Below we display our sessionInfo().
@@ -19,7 +19,7 @@ sessionInfo(package=NULL)
 ```
 
 #**Data Description**
-Found in data.world, a customer based data set that looks at orders and shipments from different markets around the world.
+The data was found on "Dr. John Rasp's Statistics Website" (http://www2.stetson.edu/~jrasp/data.htm). It is a subset of the data from College Scorecard, a Department of Education website that gives data on various variables regarding tuition, costs and school performance.
 
 #**Cleaning Data**
 Here's our ETL file to clean our data set.
@@ -32,10 +32,10 @@ source("../01 Data/R_ETL.CollegeScorecard.R")
 Cleaned data can be downloaded from Data.world as a .csv file. Because the dataset is so large, we filtered to only show some rows.
 
 Hosting User: jlee</br>
-Database: S17 DV Project 6</br>
-Dataset Name: globalshipments.csv
+Database: S17 DV Final Project</br>
+Dataset Name: CollegeScorecard.csv
 
-Download Link: https://query.data.world/s/d0wreeo0o94v85mxb6790cb21
+Download Link: https://query.data.world/s/dv5dl8q1jx2qb3d3bd2976b9d
 
 ```{r}
 source("../01 Data/Accessdataworld.R")
@@ -68,7 +68,7 @@ These crosstabs (Tableau left, Shiny right) xxxx
 </br></br>
 
 <b>Crosstab 2: BLABLALBLA</b> </br></br>
-![](../03 Visualizations/kpi2.png){ width=49% }
+![](../03 Visualizations/Crosstab + KPI w Set 2 (Tableau).png){ width=49% }
 ![](../03 Visualizations/kpi2.png){ width=49% }
 These crosstabs (Tableau left, Shiny right) xxxx
 </br></br>
@@ -80,29 +80,31 @@ These maps (Tableau left, Shiny right) xxxx
 </br></br>
 
 <b>Map 2: BLABLALBLA</b> </br></br>
-![](../03 Visualizations/Crosstab Map 2.png){ width=49% }
+![](../03 Visualizations/Crosstab Map 2 (Tableau).png){ width=49% }
 ![](../03 Visualizations/Map2.png){ width=49% }
 These maps (Tableau left, Shiny right) xxxx
 </br></br>
 
 
+<b>Barchart: BLABLALBLA</b> </br></br>
+![](../03 Visualizations/Barchart (Tableau).png){ width=30% }
+![](../03 Visualizations/Barchart ID Sets Map (Tableau).png){ width=30% }
+![](../03 Visualizations/Barchart ID Sets Map (Tableau).png){ width=30% }
+These barcharts (Tableau left, Shiny right) xxxx
+</br></br>
+
+
 #**Tableau / Tableau Action Generated Visualizations**
-**Descriptions:** Refer to visualization captions for individual descriptions.
+**Descriptions:** Full size static .pngs of the tableau visualizations. Refer to visualization captions for individual descriptions.
+
 Tableau generated barcharts. </br></br>
 ![](../03 Visualizations/Map1.png)<br><br><br>
 
 Tableau generated ID sets.</br></br>
 ![](../03 Visualizations/Map1.png)<br><br><br>
-{ width=20% }
 
 #**Shiny Visualization and Published Application**
-**Description:** A static .png of the Shiny application, as well as a link to the live published version.<br>
-
-Barchart1: Sum of Discount for each Ship Mode broken down by Region. Marks are labeled by Calculated Difference from Average for Discount and sum of Discount. The data is filtered on Country, which keeps United States.<br>
-
-Barchart2: Sum of shipping cost for each Sub-Category broken down by Region. Marks are labeled by Calculated Difference from Average for Shipping Costs and sum of Shipping Cost. The data is filtered on Country, which keeps United States.</br>
-
-Barchart 3: Sum of sales over population for each segment broken down by region. The marks are lebeled by sum([sales]/[population]) and calculated difference for sales over population. The data is filtered on country, which keeps united states.</br>
+**Description:** Full size static .pngs of the Shiny application, as well as a link to the live published version.<br>
 
 Published Link:</br>
 https://frannyfang.shinyapps.io/Barchart1/</br>
