@@ -29,7 +29,9 @@ dashboardPage(
                          hr(),
                          DT::dataTableOutput("data1")
                 ),
-                tabPanel("Instructional Expenditures to Total Cost Ratio", plotOutput("plot1", height=1000))
+                tabPanel("Instructional Expenditures to Total Cost Ratio", plotOutput("plot1", height=1000)),
+                tabPanel("Ratio Map", plotOutput("plot3", height=1000))
+                
               )
       ),
       # End Crosstab 1 tab content.
