@@ -63,4 +63,54 @@ shinyServer(function(input, output) {
   })
   # End Crosstab Tab 1 ___________________________________________________________
   
+  # Begin Crosstab Tab 2 ------------------------------------------------------------------
+  df2 <- eventReactive(input$click2, {
+    # if(online1() == "SQL") {
+    print("Getting from data.world")
+    query(
+      data.world(propsfile = "www/.data.world"),
+      dataset="jlee/s-17-dv-final-project", type="sql",
+      query="Select `CONTROL`, c.AreaName, `UGDS_WHITE`,  
+      sum(TUITFTE) as sum_rev, 
+      sum(COSTT4_A) as sum_cost, 
+      sum(TUITFTE) / sum(COSTT4_A) as ratio,
+      
+      case
+      when sum(TUITFTE) / sum(COSTT4_A) < ? then '03 Low'
+      when sum(TUITFTE) / sum(COSTT4_A) < ? then '02 Medium'
+      else '01 High'
+      end AS kpi
+      
+      from `CollegeScorecard.csv/CollegeScorecard` g join `us_education_census.csv/us_education_census` c 
+      on g.`STABBR` = c.`State`
+      where `CCBASIC` in (18, 19, 21, 22, 23) 
+      group by `CONTROL`, c.AreaName
+      order by `CONTROL`, c.AreaName", 
+        queryParameters = list(KPI_Low(), KPI_Medium())
+      ) # %>% View()
+    # }
+    # else {
+    #   print("Getting from csv")
+    #   file_path = "www/CollegeScorecard.csv"
+    #   df <- readr::read_csv(file_path)
+    #   df %>%
+    #     dplyr::group_by(`CONTROL`, `c.AreaName`) %>%
+    #     dplyr::summarize(sum_exp = sum(INEXPFTE), sum_cost = sum(COSTT4_A),
+    #                      ratio = sum(INEXPFTE) / sum(COSTT4_A),
+    #                      kpi = if_else(ratio <= KPI_Low(), '03 Low',
+    #                                    if_else(ratio <= KPI_Medium(), '02 Medium', '01 High'))) # %>% View()
+    # }
+  })
+  output$data2 <- renderDataTable({DT::datatable(df2(), rownames = FALSE,
+                                                 extensions = list(Responsive = TRUE, FixedHeader = TRUE)
+  )
+  })
+  output$plot2 <- renderPlot({ggplot(df2()) + 
+      theme(axis.text.x=element_text(size=15, vjust=0.5)) + 
+      theme(axis.text.y=element_text(size=10, hjust=0.5)) +
+      geom_text(aes(x=`CONTROL`, y=AreaName, label=sum_rev), size=5) +
+      geom_tile(aes(x=`CONTROL`, y=AreaName, fill=kpi), alpha=0.50)
+  })
+  # End Crosstab Tab 2 ___________________________________________________________
+  
   })
