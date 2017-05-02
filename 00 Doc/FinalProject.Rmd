@@ -2,9 +2,9 @@
 title: "<center><b>College Scorecard</b></center>"
 author: "<center><b>Yu-Chiao Fang, Elizabeth Kim, Seung Hoon Lee, Orlando Reategui</b></center>"
 output:
-  html_document:
-    toc: yes
   html_notebook:
+    toc: yes
+  html_document:
     toc: yes
 ---
 
@@ -46,6 +46,10 @@ source("../01 Data/Accessdataworld.R")
 
 #**Side by Side Shiny and Tableau Visualizations**
 **Descriptions:** Refer to visualization captions for individual descriptions.</br></br>
+Dataset Column Names:</br> </br> 
+INSTNM - Institution Name; 
+STABBR - State; 
+CONTROL - 1 = Public. 2 = Private nonprofit. 3 = Private for-profit </br></br>
 <b>Boxplot: Average Cost of Attendance for Type of School</b> </br></br>
 ![](../03 Visualizations/Average Cost of Attendance for Type of School Boxplot (Tableau).png){ width=49% }
 ![](../03 Visualizations/Boxplot.png){ width=49% }
@@ -66,13 +70,13 @@ These scatterplots (Tableau left, Shiny right) explore the correlation between I
 <b>Crosstab 1: Instructional Expenditures / Cost of Attendance</b> </br></br>
 ![](../03 Visualizations/Crosstab + KPI w Set 1 (Tableau).png){ width=49% }
 ![](../03 Visualizations/kpi1.png){ width=49% }
-These crosstabs (Tableau left, Shiny right) xxxx
+These crosstabs (Tableau left, Shiny right) demonstrate the ratio of instructional expenses to the average cost of attendance. They are labeled by the average cost of attendance. The red tile indicates a high ratio. The green tile indicates a medium ratio, and the blue tile indicates a low ratio. From the crosstab, one can see that public schools usually have a higher ratio, while private non-profit schools usually have a medium ratio. Private schools mostly have a medium to low ratio with the exception of some high ratios in four states.
 </br></br>
 
 <b>Crosstab 2: Tuition Revenue / Total Cost</b> </br></br>
 ![](../03 Visualizations/Crosstab + KPI w Set 2 (Tableau).png){ width=49% }
 ![](../03 Visualizations/kpi2.png){ width=49% }
-These crosstabs (Tableau left, Shiny right) xxxx
+These crosstabs (Tableau left, Shiny right) demonstratae the ratio of the net tuition revenue per full-time student to the average cost of attendance. The red tile indicates a high ratio. The green tile indicates a medium ratio, and the blue tile indicates a low ratio. From the crosstab, one can see that public schools usually a medium ratio, while private non-profit schools usally have a medium to high ratio. Private schools mostly have a high ratio with the exception of some low and medium ratios some states.
 </br></br>
 
 <b>Map 1: Region Cost of Attendance (Instructional Expenditures / Cost of Attendance)</b> </br></br>
@@ -93,7 +97,8 @@ These maps (Tableau left, Shiny right) demonstrate the distribution of tuition r
 ![](../03 Visualizations/Barchart (Tableau).png){ width=30% }
 ![](../03 Visualizations/Barchart ID Sets Map (Tableau).png){ width=30% }
 ![](../03 Visualizations/barchart.png){ width=30% }</br>
-These barcharts (Tableau left, Shiny right) xxxx
+This barchart + table calculations (Tableau left, Shiny right) display the sum of instructional expenses across each control (public, private non-profit, and private for profit) for each state. The line shows the average of the sum of instructional expenses.
+This ID Sets on a map for barcharts has two sets: High Net Price and Medium Net Price for public schools. Net price is the actual amount families pay on average. The dots represent schools in the High Net Price.
 </br></br>
 
 #**Shiny Visualization and Published Application**
