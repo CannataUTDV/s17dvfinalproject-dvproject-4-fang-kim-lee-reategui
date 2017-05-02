@@ -18,7 +18,7 @@ dashboardPage(
                 tabPanel("Data",
                          radioButtons("rb2", "Get data from:",
                                       c("SQL" = "SQL"), inline=T),
-                         uiOutput("regions2"), # See http://shiny.rstudio.com/gallery/dynamic-ui.html
+                         uiOutput("areas2"), # See http://shiny.rstudio.com/gallery/dynamic-ui.html
                          actionButton(inputId = "click2",  label = "To get data, click here"),
                          hr(), # Add space after button.
                          'Here is data for the "Barchart with Table Calculation" tab',

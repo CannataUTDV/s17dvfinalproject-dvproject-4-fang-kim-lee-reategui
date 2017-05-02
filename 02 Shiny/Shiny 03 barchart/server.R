@@ -14,7 +14,7 @@ online0 = TRUE
 
 # The following query is for the select list in the Boxplots -> Simple Boxplot tab, and Barcharts -> Barchart with Table Calculation tab.
 # if(online0) {
-regions = query(
+areas = query(
   data.world(propsfile = "www/.data.world"),
   dataset="jlee/s-17-dv-final-project", type="sql",
   query="select distinct AreaName as D, AreaName as R
@@ -30,7 +30,7 @@ regions = query(
 #   regions = bind_cols(tdf1, tdf2)
 # }
 
-region_list <- as.list(regions$D, regions$R)
+region_list <- as.list(areas$D, areas$R)
 
 region_list <- append(list("All" = "All"), region_list)
 
@@ -40,12 +40,12 @@ region_list5 <- region_list
 shinyServer(function(input, output) { 
   # These widgets are for the Barcharts tab.
   online2 = reactive({input$rb2})
-  output$regions2 <- renderUI({selectInput("selectedregions", "Choose the Area:", region_list, multiple = TRUE, selected='All') })
+  output$areas2 <- renderUI({selectInput("selectedareas", "Choose the Area:", region_list, multiple = TRUE, selected='All') })
   
   # Begin Barchart Tab ------------------------------------------------------------------
   dfbc1 <- eventReactive(input$click2, {
-    if(input$selectedregions == 'All') region_list <- input$selectedregions
-    else region_list <- append(list("Skip" = "Skip"), input$selectedregions)
+    if(input$selectedareas == 'All') region_list <- input$selectedareas
+    else region_list <- append(list("Skip" = "Skip"), input$selectedareas)
     # if(online2() == "SQL") {
     print("Getting from data.world")
     tdf = query(
