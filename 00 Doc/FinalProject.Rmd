@@ -2,9 +2,9 @@
 title: "<center><b>College Scorecard</b></center>"
 author: "<center><b>Yu-Chiao Fang, Elizabeth Kim, Seung Hoon Lee, Orlando Reategui</b></center>"
 output:
-  html_notebook:
-    toc: yes
   html_document:
+    toc: yes
+  html_notebook:
     toc: yes
 ---
 
@@ -53,12 +53,12 @@ CONTROL - 1 = Public. 2 = Private nonprofit. 3 = Private for-profit </br></br>
 <b>Boxplot: Average Cost of Attendance for Type of School</b> </br></br>
 ![](../03 Visualizations/Average Cost of Attendance for Type of School Boxplot (Tableau).png){ width=49% }
 ![](../03 Visualizations/Boxplot.png){ width=49% }
-These boxplots (Tableau left, Shiny right) demonstrate </br></br>
+These boxplots (Tableau left, Shiny right) demonstrate the average cost of attendance per type of school.</br></br>
 
 <b>Histogram: SAT Averages for Universities</b> </br></br>
 ![](../03 Visualizations/SAT_AVG Histogram (Tableau).png){ width=49% }
 ![](../03 Visualizations/Histogram.png){ width=49% }
-These histograms (Tableau left, Shiny right) dfddf</br></br>
+These histograms (Tableau left, Shiny right) demonstrate the SAT averages for universities across the United States.</br></br>
 
 <b>Scatterplot: Instructional Expenditures vs. Net tuition</b> </br></br>
 ![](../03 Visualizations/Scatter Plot (Tableau).png){ width=49% }

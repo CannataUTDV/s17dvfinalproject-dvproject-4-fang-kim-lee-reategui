@@ -2,9 +2,9 @@ name: shinyfinal
 title: ShinyFinal
 account: ehjkim
 server: shinyapps.io
-appId: 177291
-bundleId: 812363
+appId: 177316
+bundleId: 812512
 url: https://ehjkim.shinyapps.io/shinyfinal/
-when: 1493752819.03762
+when: 1493759330.45777
 asMultiple: FALSE
 asStatic: FALSE
