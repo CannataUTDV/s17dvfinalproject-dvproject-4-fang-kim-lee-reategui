@@ -1,4 +1,5 @@
 # server.R
+
 require(ggplot2)
 require(dplyr)
 require(shiny)
@@ -8,8 +9,9 @@ require(readr)
 require(DT)
 require(leaflet)
 require(plotly)
-require(lubridate)
 library (plotly)
+require(lubridate)
+
 
 
 shinyServer(function(input, output) { 
@@ -65,7 +67,7 @@ shinyServer(function(input, output) {
   output$plot3 <- renderPlotly({plot_geo(df1(), locationmode = 'USA-states') %>%
       add_trace(z= ~avgCost, color = ~avgCost, colors = 'Purples', locations = ~STABBR) %>%
       colorbar(title = "Ratio") %>%
-      layout(title = "Region Cost of Attendance Map", geo = g)
+      layout(title = "Region Cost of Attendance Map")
   })
     
   
