@@ -25,7 +25,7 @@ Found in data.world, a customer based data set that looks at orders and shipment
 Here's our ETL file to clean our data set.
 
 ```{r}
-source("../01 Data/R_ETL.GlobalShipments.R")
+source("../01 Data/R_ETL.CollegeScorecard.R")
 ```
 
 #**Cleaned up Data Download**
@@ -38,21 +38,62 @@ Dataset Name: globalshipments.csv
 Download Link: https://query.data.world/s/d0wreeo0o94v85mxb6790cb21
 
 ```{r}
-source("../01 Data/Accessdataworld6.R")
+source("../01 Data/Accessdataworld.R")
 ```
+
+
+#**Side by Side Shiny and Tableau Visualizations**
+**Descriptions:** Refer to visualization captions for individual descriptions.</br></br>
+<b>Boxplot: Average Cost of Attendance for Type of School</b> </br></br>
+![](../03 Visualizations/Average Cost of Attendance for Type of School Boxplot (Tableau).png){ width=49% }
+![](../03 Visualizations/Boxplot.png){ width=49% }
+These boxplots (Tableau left, Shiny right) dfddf</br></br>
+
+<b>Histogram: SAT Averages for Universities</b> </br></br>
+![](../03 Visualizations/SAT_AVG Histogram (Tableau).png){ width=49% }
+![](../03 Visualizations/Histogram.png){ width=49% }
+These histograms (Tableau left, Shiny right) dfddf</br></br>
+
+<b>Scatterplot: Instructional Expenditures vs. Net tuition</b> </br></br>
+![](../03 Visualizations/Scatter Plot (Tableau).png){ width=49% }
+![](../03 Visualizations/Scatterplot.png){ width=49% }
+These scatterplots (Tableau left, Shiny right) explore the correlation between Instructional expenditures per full-time equivalent student and Net tuition revenue per full-time equivalent student.
+</br></br>
+
+
+<b>Crosstab 1: BLABLALBLA</b> </br></br>
+![](../03 Visualizations/Crosstab + KPI w Set 1 (Tableau).png){ width=49% }
+![](../03 Visualizations/kpi1.png){ width=49% }
+These crosstabs (Tableau left, Shiny right) xxxx
+</br></br>
+
+<b>Crosstab 2: BLABLALBLA</b> </br></br>
+![](../03 Visualizations/kpi2.png){ width=49% }
+![](../03 Visualizations/kpi2.png){ width=49% }
+These crosstabs (Tableau left, Shiny right) xxxx
+</br></br>
+
+<b>Map 1: BLABLALBLA</b> </br></br>
+![](../03 Visualizations/Crosstab Map 1 (Tableau).png){ width=49% }
+![](../03 Visualizations/Map1.png){ width=49% }
+These maps (Tableau left, Shiny right) xxxx
+</br></br>
+
+<b>Map 2: BLABLALBLA</b> </br></br>
+![](../03 Visualizations/Crosstab Map 2.png){ width=49% }
+![](../03 Visualizations/Map2.png){ width=49% }
+These maps (Tableau left, Shiny right) xxxx
+</br></br>
+
 
 #**Tableau / Tableau Action Generated Visualizations**
 **Descriptions:** Refer to visualization captions for individual descriptions.
 Tableau generated barcharts. </br></br>
-![](../03 Visualizations/TableauBarchart1.png)<br><br><br>
-![](../03 Visualizations/TableauBarchart2.png)<br><br><br>
-![](../03 Visualizations/TableauBarchart3.png)<br><br><br>
+![](../03 Visualizations/Map1.png)<br><br><br>
 
 Tableau generated ID sets.</br></br>
-![](../03 Visualizations/ID Sets on a Map 1.png)<br><br><br>
-![](../03 Visualizations/ID Sets on a Map 2.png)<br><br><br>
-![](../03 Visualizations/ID Sets on a Map 3.png)<br><br><br>
-![](../03 Visualizations/ID Sets on a Map 4.png)<br><br><br>
+![](../03 Visualizations/Map1.png)<br><br><br>
+{ width=20% }
 
 #**Shiny Visualization and Published Application**
 **Description:** A static .png of the Shiny application, as well as a link to the live published version.<br>
@@ -65,14 +106,6 @@ Barchart 3: Sum of sales over population for each segment broken down by region.
 
 Published Link:</br>
 https://frannyfang.shinyapps.io/Barchart1/</br>
-https://frannyfang.shinyapps.io/Barchart2/</br>
-https://orlandordiaz.shinyapps.io/Barchart3</br>
 
 Barchart1
-![](../03 Visualizations/ShinyBarchart1.PNG)</center>
-
-Barchart2
-![](../03 Visualizations/ShinyBarchart2.PNG)</center>
-
-Barchart3
-![](../03 Visualizations/ShinyBarchart3.PNG)</center>
+![](../03 Visualizations/Map1.PNG){ width=20% }</center>
