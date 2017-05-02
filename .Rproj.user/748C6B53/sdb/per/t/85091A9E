@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#ui.R\nrequire(shiny)\nrequire(shinydashboard)\n\ndashboardPage(\n  dashboardHeader(\n  ),\n  dashboardSidebar(\n    sidebarMenu(\n      menuItem(\"Crosstabs 1\", tabName = \"crosstab1\", icon = icon(\"dashboard\")),\n      menuItem(\"Crosstabs 2\", tabName = \"crosstab2\", icon = icon(\"dashboard\"))\n    )\n  ),\n  dashboardBody(    \n    tabItems(\n      # Begin Crosstab 1 tab content.\n      tabItem(tabName = \"crosstab1\",\n              tabsetPanel(\n                tabPanel(\"Data\",  \n                         radioButtons(\"rb1\", \"Get data from:\",\n                                      c(\"SQL\" = \"SQL\"), inline=T),\n                         sliderInput(\"KPI1\", \"KPI_Low:\", \n                                     min = 0, max = .35,  value = .1),\n                         sliderInput(\"KPI2\", \"KPI_Medium:\", \n                                     min = .35, max = .6,  value = .2),\n                         actionButton(inputId = \"click1\",  label = \"To get data, click here\"),\n                         hr(), # Add space after button.\n                         'Here is data for the \"Instructional Expenditures to Total Cost Ratio\" tab',\n                         hr(),\n                         DT::dataTableOutput(\"data1\")\n                ),\n                tabPanel(\"Instructional Expenditures to Total Cost Ratio\", plotOutput(\"plot1\", height=1000))\n              )\n      ),\n      # End Crosstab 1 tab content.\n      # Begin Crosstab 2 tab content.\n      tabItem(tabName = \"crosstab2\",\n              tabsetPanel(\n                tabPanel(\"Data\",  \n                         radioButtons(\"rb1\", \"Get data from:\",\n                                      c(\"SQL\" = \"SQL\"), inline=T),\n                         sliderInput(\"KPI1\", \"KPI_Low:\", \n                                     min = 0, max = .2,  value = .1),\n                         sliderInput(\"KPI2\", \"KPI_Medium:\", \n                                     min = .2, max = .4,  value = .2),\n                         actionButton(inputId = \"click2\",  label = \"To get data, click here\"),\n                         hr(), # Add space after button.\n                         'Here is data for the \"Tuition Revenue to Total Cost Ratio\" tab',\n                         hr(),\n                         DT::dataTableOutput(\"data2\")\n                ),\n                tabPanel(\"Tuition Revenue to Total Cost Ratio\", plotOutput(\"plot2\", height=1000))\n              )\n      )\n      # End Crosstab tab 2 content.\n    )\n  )\n)\n",
+    "created" : 1493694953909.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3879677852",
+    "id" : "85091A9E",
+    "lastKnownWriteTime" : 1493697447,
+    "last_content_update" : 1493697447930,
+    "path" : "~/DV_ProjectFinal/02 Shiny/Shiny 02/ui.R",
+    "project_path" : "02 Shiny/Shiny 02/ui.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
